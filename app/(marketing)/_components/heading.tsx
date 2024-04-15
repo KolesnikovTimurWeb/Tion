@@ -1,0 +1,32 @@
+"use client"
+import React from 'react'
+import style from '@/styles/Heading.module.scss'
+import Image from 'next/image'
+import { useConvexAuth } from 'convex/react'
+import Loader from '@/components/loader'
+import { SignIn, SignInButton } from '@clerk/nextjs'
+
+const Heading = () => {
+   const { isAuthenticated, isLoading } = useConvexAuth()
+
+   return (
+      <div className={style.heading}>
+         <h1>Your Ideas, Documents & Plans. Welcome to <span>Tion</span> </h1>
+         <h2>Tion is connected workspace where better, faster work happens </h2>
+         {isAuthenticated && !isLoading && (
+            <button>Enter Tion <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg> </button>
+
+         )}
+         {!isAuthenticated && !isLoading && (
+            <SignInButton mode='modal'>
+               <button>Sign In  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg> </button>
+            </SignInButton>
+         )}
+         {isLoading && (
+            <Loader />
+         )}
+      </div>
+   )
+}
+
+export default Heading

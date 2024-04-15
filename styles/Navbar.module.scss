@@ -1,0 +1,23 @@
+.navbar{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: fixed;
+   padding: 10px;
+   width: 100%;
+   background: #fff;
+   &_active{
+   border-bottom: 1px solid #000;
+   background: #000;
+   }
+
+   &_login{
+      button{
+         padding: 10px 24px;
+         background: #000;
+         color: #fff;
+         font-weight: 500px;
+         border-radius: 8px;
+      }
+   }
+}

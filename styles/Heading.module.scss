@@ -1,0 +1,48 @@
+.heading{
+   display: flex;
+   align-items: center;
+   justify-content:center;
+   text-align: center;
+   flex-direction: column;
+   min-height: 100vh;   
+   margin: 0 auto;
+   max-width: 640px;
+
+   h1{
+      font-weight: 700;
+      font-size: 3.75rem;
+      line-height: 1;
+      span{
+         text-decoration: underline;
+      }
+   }
+   h2{
+      font-size: 1.5rem;
+      line-height: 2rem;
+      font-weight: 500;
+      max-width: 450px;
+      margin: 20px 0;
+   }
+   button{
+      font-size: 16px;
+      line-height: 1.25rem;
+      font-weight: 500;
+      padding: 10px 24px ;
+      background: #000;
+      color: #fff;
+      border-radius: 8px;
+      display: flex;
+      gap: 5px;
+      cursor: pointer;
+      align-items: center;
+      transition: .2s ease-in-out;
+      &:focus{
+         background: #292929;
+         transition: .2s ease-in-out;
+      }
+      &:hover{
+         opacity: .8;
+         transition: .2s ease-in-out;
+      }
+   }
+}
