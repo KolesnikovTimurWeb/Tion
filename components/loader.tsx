@@ -25,7 +25,7 @@ interface SpinnerProps extends VariantProps<typeof loaderVariants> { }
 const Loader = ({ size }: SpinnerProps) => {
    return (
       <div className={cn(loaderVariants({ size }))} >
-         <Image width={24} height={24} src={svg} />
+         <Image alt='Loader' width={24} height={24} src={svg} />
       </div>
    )
 }

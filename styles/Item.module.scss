@@ -1,0 +1,93 @@
+.item{
+   display: flex;
+   align-items: center;
+   width: 100%;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   transition: .1s ease-in-out;
+   cursor: pointer;
+   gap: 5px;
+   min-height: 32px;
+   color: hsl(0 0% 45.1%);
+   fill: hsl(0 0% 45.1%);
+   svg{
+      fill: hsl(0 0% 45.1%);
+   }
+   &_icons{
+      margin-left: auto;
+      margin-right: 20px;
+   }
+   &_icon{
+      padding: 0 3px;
+      transition: .1s ease-in-out;
+
+      &:hover{
+         background: hsla(0, 0%, 80%, 0.5);
+         border-radius: 3px;
+         transition: .1s ease-in-out;
+      }
+   }
+   &:hover{
+      transition: .1s ease-in-out;
+
+         background: hsl(0deg 0% 9% / 5%);
+      }
+
+      span{
+         font-size: 15px;
+      }
+}
+
+.trash{
+   label{
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-family: inherit;
+      color: hsl(0 0% 70%);
+
+   }
+   input{
+      margin: 5px 0;
+      background: hsl(0 0% 94%);
+      border: none;
+      width: 100%;
+      color: #000;
+      font-size: 14px;
+      font-family: inherit;
+      padding: 12px;
+      outline: none;
+      border-radius: 4px;
+      
+   }
+
+   &_items{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+   }
+   &_item{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:hover{
+         background: hsla(0, 0%, 94%, 0.5);
+
+      }
+      
+      img{
+         padding: 0 4px;
+         transition: .1s ease-in-out;
+         height: 100%;
+      min-height: 25PX;
+
+      &:hover{
+         background: hsla(0, 0%, 80%, 0.5);
+         border-radius: 3px;
+         transition: .1s ease-in-out;
+      }
+      }
+   }
+}

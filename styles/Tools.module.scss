@@ -1,0 +1,41 @@
+.toolsbar{
+   position: relative;
+   margin-top: 150px;
+   display: flex;
+
+   z-index: 1;
+   &_h2{
+      position: relative;
+      z-index: -1;
+      padding: 40px 0;
+ 
+      h2{
+         font-weight: 700;
+         font-size: 60px;
+      }
+   }
+   textarea{
+      padding: 40px 0;
+
+      font-size: 60px;
+      border: none;
+      background: none;
+      resize:none ;
+      font-family: inherit;
+      color: #000;
+      outline: none;
+      height: 100%;
+      font-weight: 700;
+   }
+   &_menu{
+      position: absolute;
+      border-radius: 8px;
+      padding: 20px;
+      z-index: 9999;
+      --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1);
+      --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      top: -40px;
+      left: 0px;
+   }
+}

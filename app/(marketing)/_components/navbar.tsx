@@ -14,20 +14,22 @@ const Navbar = () => {
          <Logo />
 
          {isLoading && (
-            <Loader />
+            <button className={style.navbar_loading}>
+               <Loader />
+            </button>
          )}
          {!isAuthenticated && !isLoading && (
             <div className={style.navbar_login}>
                <SignInButton mode='modal'>
-                  <button>Log in</button>
+                  <button>Sign in</button>
                </SignInButton>
             </div>
          )}
 
          {isAuthenticated && !isLoading && (
             <div className={style.navbar_enter}>
-               <button>Enter</button>
-               <UserButton afterSignOutUrl='/' />
+               <button className={style.navbar_enter_button}>Enter Tion</button>
+               <UserButton afterSignOutUrl='/document' />
             </div>
          )}
       </div>

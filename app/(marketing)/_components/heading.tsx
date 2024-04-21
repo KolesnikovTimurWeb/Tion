@@ -1,10 +1,11 @@
 "use client"
 import React from 'react'
 import style from '@/styles/Heading.module.scss'
-import Image from 'next/image'
 import { useConvexAuth } from 'convex/react'
 import Loader from '@/components/loader'
 import { SignIn, SignInButton } from '@clerk/nextjs'
+import Image from 'next/image'
+import document from '@/public/documents.png'
 
 const Heading = () => {
    const { isAuthenticated, isLoading } = useConvexAuth()
@@ -25,6 +26,8 @@ const Heading = () => {
          {isLoading && (
             <Loader />
          )}
+         <Image width={400} height={300} alt='Image' src={document} />
+
       </div>
    )
 }

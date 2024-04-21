@@ -9,16 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@blocknote/core": "^0.12.4",
+    "@blocknote/react": "^0.12.4",
     "@clerk/clerk-react": "^4.30.10",
     "@clerk/nextjs": "^4.29.12",
+    "@nextui-org/dropdown": "^2.1.18",
+    "@nextui-org/input": "^2.1.19",
+    "@nextui-org/modal": "^2.0.33",
+    "@nextui-org/popover": "^2.1.19",
+    "@nextui-org/react": "^2.3.0",
+    "@nextui-org/skeleton": "^2.0.26",
     "@udecode/cn": "^31.0.0",
     "class-variance-authority": "^0.7.0",
     "convex": "^1.11.0",
+    "emoji-picker-react": "^4.9.2",
+    "framer-motion": "^11.1.1",
     "next": "14.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-textarea-autosize": "^8.5.3",
     "sass": "^1.75.0",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "sonner": "^1.4.41",
+    "usehooks-ts": "^3.1.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@trunkio/launcher": "^1.3.1",
