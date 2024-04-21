@@ -1,7 +1,7 @@
 'use client';
 
 
-import { PartialBlock } from "@blocknote/core";
+import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import "@blocknote/core/fonts/inter.css";
 import { BlockNoteView, useCreateBlockNote } from "@blocknote/react";
 import "@blocknote/react/style.css";
@@ -12,7 +12,7 @@ interface EditorProps {
 }
 
 const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
-   const editor = useCreateBlockNote({
+   const editor: BlockNoteEditor = useCreateBlockNote({
       initialContent: initialContent ? (JSON.parse(initialContent) as PartialBlock[]) : undefined,
    });
 

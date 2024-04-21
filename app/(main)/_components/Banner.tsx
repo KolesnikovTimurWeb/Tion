@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { useMutation, useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { toast } from 'sonner';
-import { useEdgeStore } from '@/lib/edgestore';
 import ConfirmModel from '@/components/models/confirmModel';
 
 interface BannerProps {
@@ -19,12 +18,9 @@ export const Banner = ({ documentId }: BannerProps) => {
    const restore = useMutation(api.documents.restore);
    const document = useQuery(api.documents.getById, { documentId: documentId });
 
-   const { edgestore } = useEdgeStore();
 
    const onRemove = () => {
-      edgestore.publicFiles.delete({
-         url: document?.coverImage as string,
-      });
+
 
       const promise = remove({ id: documentId });
 
