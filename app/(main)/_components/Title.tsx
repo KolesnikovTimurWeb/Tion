@@ -60,12 +60,12 @@ export const Title = ({ initialData }: TitleProps) => {
                onChange={onChange}
                onKeyDown={onKeyDown}
                value={title}
-               className="h-7 px-2 focus-visible:ring-transparent"
+               style={{ background: 'none', color: '#000', border: "none", outline: 'none', fontSize: '16px', fontFamily: 'inherit' }}
             />
          ) : (
             <button
                onClick={enableEditing}
-               className="font-normal h-auto px-2 py-1 focus-visible:ring-transparent">
+               style={{ background: 'none', color: '#000', border: "none", outline: 'none', fontSize: '16px', fontFamily: 'inherit' }}>
                <span className="truncate">{initialData?.title}</span>
             </button>
          )}

@@ -3,7 +3,53 @@
    top: 0;
    left: 0;
    width: 100%;
-   background: #ffffff73;
    height: 100vh;
-   z-index: 999;
+   z-index: 1000000;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   svg{
+      display: none;
+   }
+   &_body{
+      background: #fff;
+      width: 300px;
+      text-align: center;
+      border-radius: 8px;
+
+      h2{
+         font-size: 24px;
+         font-family: inherit;
+      }
+      p{
+         font-size: 14px;
+         margin-bottom: 20px;
+         font-family: inherit;
+      }
+      button{
+         padding: 10px;
+         border: .5px solid #cecece;
+         background: none;
+         color: #000;
+         border-radius: 4px;
+         transition: .1s ease-in-out;
+         font-family: inherit;
+         font-weight: 500;
+         
+         &:hover{
+            opacity: .8;
+            transition: .1s ease-in-out;
+         }
+      }
+      &_active{
+         background: #000 !important;
+         color: #fff !important;
+      }
+      padding: 30px;
+      margin-top: -10px;
+      --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 8px -2px rgba(0, 0, 0, .2);
+      --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+   }
 }

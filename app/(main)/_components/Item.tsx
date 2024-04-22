@@ -6,12 +6,14 @@ import { Skeleton } from '@nextui-org/skeleton'
 import arrow from '@/public/arrow.svg'
 import dotsIcon from '@/public/dots.svg'
 import plus from '@/public/plus.svg'
+import trash from '@/public/trash.svg'
 import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/popover'
 import { archive } from '@/convex/documents'
+import { useUser } from '@clerk/clerk-react'
 
 
 interface ItemProps {
@@ -33,6 +35,7 @@ const Item = ({ id, active, isSearch, level = 0, onExpend, expanded, documentIco
    }
    const [isShown, setIsShown] = useState(false);
    const router = useRouter();
+   const { user } = useUser();
    const create = useMutation(api.documents.create);
    const archive = useMutation(api.documents.archive);
    const onArchive = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -98,14 +101,19 @@ const Item = ({ id, active, isSearch, level = 0, onExpend, expanded, documentIco
          {
             !!id && isShown === true && (
                <div className={style.item_icons}>
-                  <Popover placement="down">
+                  <Popover placement="bottom">
                      <PopoverTrigger>
-                        <Image className={style.item_icon} src={dotsIcon} onClick={onArchive} alt='icon' width={20} height={20} />
+                        <Image className={style.item_icon} src={dotsIcon} alt='icon' width={20} height={20} />
                      </PopoverTrigger>
                      <PopoverContent>
-                        <div className="px-1 py-2">
-                           <div className="text-small font-bold">Popover Content</div>
-                           <div className="text-tiny">This is the popover content</div>
+                        <div className={style.popup}>
+                           <button onClick={onArchive}>
+                              <Image className={style.item_icon} src={trash} alt='icon' width={20} height={20} />
+
+                              Delete
+                           </button>
+
+                           <p>Last edited by: {user?.fullName}</p>
                         </div>
                      </PopoverContent>
                   </Popover>

@@ -64,3 +64,15 @@
    }
 }
 
+.navbar_landing{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 10px;  
+
+   button{
+      background: none;
+      outline: none;
+      border: none;
+   }
+}

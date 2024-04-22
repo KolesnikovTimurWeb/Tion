@@ -33,11 +33,13 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
 
 
    return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
          <div>
             <Tools initialData={document} />
          </div>
-         <Editor initialContent={document.content} onChange={onChange} />
+         <div>
+            <Editor initialContent={document.content} onChange={onChange} />
+         </div>
       </div>
    )
 }

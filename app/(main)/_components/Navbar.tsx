@@ -5,7 +5,10 @@ import { useQuery } from 'convex/react';
 import { useParams } from 'next/navigation';
 import React from 'react'
 import style from '@/styles/Navbar.module.scss'
+import menu from '@/public/menu.svg'
 import { Title } from './Title';
+import { Banner } from './Banner';
+import Image from 'next/image';
 interface NavbarProps {
    isCollapsed: boolean;
    onResetWidth: () => void;
@@ -23,9 +26,7 @@ const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
    }
    return (
       <nav className={style.navbar_landing}>
-         {isCollapsed && (
-            <p>SMTG</p>
-         )}
+
 
          <div>
             <Title initialData={document} />
@@ -33,7 +34,7 @@ const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
 
 
          {document.isArchived && (
-            <div></div>
+            <Banner documentId={document._id} />
          )}
       </nav>
    )

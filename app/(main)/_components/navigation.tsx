@@ -22,8 +22,10 @@ import TrashBox from './TrashBox';
 import ConfirmModel from '@/components/models/confirmModel';
 import Navbar from './Navbar';
 import Image from 'next/image';
+import { useSearch } from '@/hooks/use-search';
 
 const Navigation = () => {
+   const search = useSearch()
    const pathname = usePathname()
    const params = useParams();
    const isResizingRef = useRef(false);
@@ -35,25 +37,6 @@ const Navigation = () => {
    const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
 
-   useEffect(() => {
-      if (isMobile) {
-         collapse();
-      } else {
-         resetWidth();
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [isMobile]);
-
-
-
-   useEffect(() => {
-      if (isMobile) {
-         collapse();
-      } else {
-         resetWidth();
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [pathname]);
 
 
 
@@ -72,44 +55,20 @@ const Navigation = () => {
 
       if (newWidth < 320) newWidth = 320;
       if (newWidth > 520) newWidth = 520;
+      navigationRef.current.style.setProperty('left', `${newWidth}px`);
 
       if (sidebarRef.current && navigationRef.current) {
          sidebarRef.current.style.width = `${newWidth}px`;
       }
    };
+   useEffect(() => {
+      navigationRef.current.style.setProperty('left', '320px');
+   }, [])
 
    const handleMouseUp = () => {
       isResizingRef.current = false;
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
-   };
-   const resetWidth = () => {
-      if (sidebarRef.current && navigationRef.current) {
-         setIsCollapsed(false);
-         setIsResetting(true);
-
-         sidebarRef.current.style.width = isMobile ? '100%' : '320px';
-         sidebarRef.current.style.setProperty('left', '0');
-         navigationRef.current.style.setProperty('width', isMobile ? '0' : '320px)');
-         navigationRef.current.style.setProperty('left', isMobile ? '50%' : '320px');
-
-         setTimeout(() => {
-            setIsResetting(false);
-         }, 300);
-      }
-   };
-
-   const collapse = () => {
-      if (sidebarRef.current && navigationRef.current) {
-         setIsCollapsed(true);
-         setIsResetting(true);
-
-         sidebarRef.current.style.width = '0';
-         sidebarRef.current.style.setProperty('left', '-100px');
-         setTimeout(() => {
-            setIsResetting(false);
-         }, 300);
-      }
    };
 
 
@@ -125,69 +84,69 @@ const Navigation = () => {
 
    return (
       <>
-         <aside ref={sidebarRef} className={cn(style.navigation, isResetting && style.navigation)}>
-            <div
-               onClick={collapse}
-               role="button"
-               className={cn(style.navigation_left)}>
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" ><path d="m11 17-5-5 5-5"></path><path d="m18 17-5-5 5-5"></path></svg>
+         <div>
+            <aside ref={sidebarRef} className={cn(style.navigation, isResetting && style.navigation)}>
 
-            </div>
-            <div>
-               <UserItem />
-               <Item onClick={handleCreate} icon={settingsIcon} label={"Setting"} />
-               <Item onClick={handleCreate} isSearch icon={searchIcon} label={"Search"} />
-               <Item onClick={handleCreate} icon={plusIcon} label={"New page"} />
-            </div>
+               <div>
+                  <UserItem />
+                  <Item
+                     label="Search"
+                     icon={searchIcon}
+                     isSearch
+                     onClick={search.onOpen}
+                  />
+                  <Item onClick={handleCreate} icon={plusIcon} label={"New page"} />
+               </div>
 
-            <div>
-               <DocumentList />
-            </div>
+               <div>
+                  <DocumentList />
+               </div>
 
-            <div>
-               <Item onClick={handleCreate} icon={plus} label={"Add page"} />
-            </div>
-            <Popover placement="right">
-               <PopoverTrigger>
-                  <button className={style.navigation_popup_button}>
-                     <Item icon={trash} label={"Trash"} />
-                  </button>
-               </PopoverTrigger>
-               <PopoverContent>
-                  <div className={style.navigation_popup}>
-                     <TrashBox />
-                  </div>
-               </PopoverContent>
-            </Popover>
-            <div
-               onMouseDown={handleMouseDown}
-               onClick={resetWidth}
-               className={style.navigation_resize}
-            >
-
-            </div>
-         </aside>
-         <div
-            ref={navigationRef}
-            className={cn(style.navigation_menu)}>
-            {!!params.documentId ? (
-               <Navbar
-                  isCollapsed={isCollapsed}
-                  onResetWidth={resetWidth}
-               />
-            ) : (
-               <nav >
-                  {isCollapsed && (
-                     <div
-                        onClick={resetWidth}
-                        role="button"
-                     >
-                        <Image width={24} height={24} alt='icon' src={menu} />
+               <div>
+                  <Item onClick={handleCreate} icon={plus} label={"Add page"} />
+               </div>
+               <Popover placement="bottom">
+                  <PopoverTrigger>
+                     <button className={style.navigation_popup_button}>
+                        <Item icon={trash} label={"Trash"} />
+                     </button>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                     <div className={style.navigation_popup}>
+                        <TrashBox />
                      </div>
-                  )}
-               </nav>
-            )}
+                  </PopoverContent>
+               </Popover>
+               <div
+                  onMouseDown={handleMouseDown}
+
+                  className={style.navigation_resize}
+               >
+
+               </div>
+            </aside>
+            <div
+               ref={navigationRef}
+               className={cn(style.navigation_menu)}>
+               {!!params.documentId ? (
+                  <Navbar
+                     isCollapsed={isCollapsed}
+
+                  />
+               ) : (
+                  <nav >
+                     {isCollapsed && (
+                        <div
+                           role="button"
+                        >
+                           <Image width={24} height={24} alt='icon' src={menu} />
+                        </div>
+                     )}
+                  </nav>
+               )}
+            </div>
          </div>
+
 
       </>
    )

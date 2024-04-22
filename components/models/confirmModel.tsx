@@ -20,13 +20,16 @@ const ConfirmModel = ({ children, onConfirm }: ConfirmModal) => {
             <ModalContent>
                {(onClose) => (
                   <>
-                     <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
-                     <ModalBody className={style.modal_body}>
-                        <h2>Are your sure?</h2>
-                        <div>
-                           <button onClick={onConfirm}>Yes,I am</button>
-                           <button onClick={onClose}>No,I made mistake</button>
+                     <ModalBody >
+                        <div className={style.model_body}>
+                           <h2>Are your sure?</h2>
+                           <p>This action cannot be undone.</p>
+                           <div style={{ display: 'flex', gap: '10px', flexDirection: "column" }}>
+                              <button className={style.model_body_active} onClick={onConfirm}>Yes,I am sure</button>
+                              <button onClick={onClose}>Cancel</button>
+                           </div>
                         </div>
+
                      </ModalBody>
 
                   </>
