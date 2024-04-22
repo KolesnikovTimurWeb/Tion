@@ -11,7 +11,7 @@ const UserItem = () => {
          <Dropdown className={style.dropdown}>
             <DropdownTrigger className={style.dropdown_trigger}>
                <Button>
-                  <Image alt="Avatar" width={24} height={24} src={user?.imageUrl} />
+                  <Image alt="Avatar" width={24} height={24} src={user?.imageUrl || "null"} />
                   <p>{user?.firstName}&apos;s Nextion</p>
                </Button>
             </DropdownTrigger>
@@ -20,7 +20,7 @@ const UserItem = () => {
                   <p>{user?.emailAddresses[0].emailAddress}</p>
                </DropdownItem>
                <DropdownItem isReadOnly key="avatar">
-                  <Image alt="Avatar" width={24} height={24} src={user?.imageUrl} />
+                  <Image alt="Avatar" width={24} height={24} src={user?.imageUrl || "null"} />
                   <h2>{user?.fullName}&apos;s Nextion</h2>
                </DropdownItem>
                <DropdownItem isReadOnly key="sign-out" >

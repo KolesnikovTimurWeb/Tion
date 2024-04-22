@@ -4,6 +4,7 @@ import { useConvexAuth } from 'convex/react'
 import { redirect } from 'next/navigation'
 import React, { ReactNode } from 'react'
 import Navigation from './_components/navigation'
+import SearchCommand from '@/components/SearchCommand'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
 
@@ -22,6 +23,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
    return (
       <div style={{ display: "flex", height: "100%" }}>
          <Navigation />
+         <SearchCommand />
          {children}
       </div >
    )

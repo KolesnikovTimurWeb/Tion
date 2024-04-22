@@ -26,8 +26,8 @@ const SearchCommand = () => {
       return null
    }
    return (
-      <div>
-         <Modal isOpen={isOpen} className={style.model}>
+      <div className={style.model}>
+         <Modal isOpen={isOpen} >
             <ModalContent>
                {(onClose) => (
                   <>
