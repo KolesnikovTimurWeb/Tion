@@ -29,7 +29,7 @@ interface ItemProps {
    icon: string,
 }
 const Item = ({ id, active, isSearch, level = 0, onExpend, expanded, documentIcon, onClick, label, icon }: ItemProps) => {
-   const handleExpand = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+   const handleExpand = (event) => {
       event.stopPropagation()
       onExpend?.()
    }
@@ -38,7 +38,7 @@ const Item = ({ id, active, isSearch, level = 0, onExpend, expanded, documentIco
    const { user } = useUser();
    const create = useMutation(api.documents.create);
    const archive = useMutation(api.documents.archive);
-   const onArchive = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+   const onArchive = (event) => {
       event.stopPropagation();
       if (!id) return;
       const promise = archive({ id }).then(() => router.push('/documents'));
@@ -50,7 +50,7 @@ const Item = ({ id, active, isSearch, level = 0, onExpend, expanded, documentIco
       });
    };
 
-   const onCreate = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+   const onCreate = (event) => {
       event.stopPropagation();
       if (!id) return;
       const promise = create({ title: 'Untitled', parentDocument: id }).then((documentId) => {
