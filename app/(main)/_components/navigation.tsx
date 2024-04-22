@@ -92,8 +92,11 @@ const Navigation = () => {
 
                <div>
                   <UserItem />
-                  <button onClick={search.onOpen}>
+                  <button onClick={() => search.onOpen}>
                      CLICK
+                  </button>
+                  <button onClick={() => console.log(search.isOpen)}>
+                     Check
                   </button>
                   <Item
                      label="Search"

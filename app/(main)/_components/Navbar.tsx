@@ -9,11 +9,9 @@ import menu from '@/public/menu.svg'
 import { Title } from './Title';
 import { Banner } from './Banner';
 import Image from 'next/image';
-interface NavbarProps {
-   isCollapsed: boolean;
-}
 
-const Navbar = ({ isCollapsed }: NavbarProps) => {
+
+const Navbar = () => {
    const params = useParams()
 
    const document = useQuery(api.documents.getById, { documentId: params.documentId as Id<'documents'> });
