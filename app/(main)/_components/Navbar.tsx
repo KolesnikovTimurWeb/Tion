@@ -11,10 +11,9 @@ import { Banner } from './Banner';
 import Image from 'next/image';
 interface NavbarProps {
    isCollapsed: boolean;
-   onResetWidth: () => void;
 }
 
-const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
+const Navbar = ({ isCollapsed }: NavbarProps) => {
    const params = useParams()
 
    const document = useQuery(api.documents.getById, { documentId: params.documentId as Id<'documents'> });

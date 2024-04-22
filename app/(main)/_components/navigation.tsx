@@ -55,14 +55,17 @@ const Navigation = () => {
 
       if (newWidth < 320) newWidth = 320;
       if (newWidth > 520) newWidth = 520;
-      navigationRef.current.style.setProperty('left', `${newWidth}px`);
-
+      if (navigationRef.current) {
+         navigationRef.current.style.setProperty('left', `${newWidth}px`);
+      }
       if (sidebarRef.current && navigationRef.current) {
          sidebarRef.current.style.width = `${newWidth}px`;
       }
    };
    useEffect(() => {
-      navigationRef.current.style.setProperty('left', '320px');
+      if (navigationRef.current) {
+         navigationRef.current.style.setProperty('left', '320px');
+      }
    }, [])
 
    const handleMouseUp = () => {
@@ -89,6 +92,9 @@ const Navigation = () => {
 
                <div>
                   <UserItem />
+                  <button onClick={search.onOpen}>
+                     CLICK
+                  </button>
                   <Item
                      label="Search"
                      icon={searchIcon}
@@ -130,8 +136,6 @@ const Navigation = () => {
                className={cn(style.navigation_menu)}>
                {!!params.documentId ? (
                   <Navbar
-                     isCollapsed={isCollapsed}
-
                   />
                ) : (
                   <nav >
