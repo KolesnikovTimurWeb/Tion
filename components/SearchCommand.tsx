@@ -17,7 +17,7 @@ const SearchCommand = () => {
    const toggle = useSearch((store) => store.toggle)
    const isOpen = useSearch((store) => store.isOpen)
    const onClose = useSearch((store) => store.onClose)
-
+   console.log(isOpen)
    useEffect(() => {
       setIsMounted(true)
    }, [])
