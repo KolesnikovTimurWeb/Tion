@@ -5,10 +5,12 @@ import { useQuery } from 'convex/react';
 import { useParams } from 'next/navigation';
 import React from 'react'
 import style from '@/styles/Navbar.module.scss'
+import skeleton from '@/styles/Skeleton.module.scss'
 import menu from '@/public/menu.svg'
 import { Title } from './Title';
 import { Banner } from './Banner';
 import Image from 'next/image';
+import { Skeleton } from '@nextui-org/react';
 
 
 const Navbar = () => {
@@ -16,7 +18,11 @@ const Navbar = () => {
 
    const document = useQuery(api.documents.getById, { documentId: params.documentId as Id<'documents'> });
    if (document === undefined) {
-      return <p>Loading</p>
+      return (
+         <div>
+            <Skeleton className={skeleton.skeleton_button} />
+         </div>
+      )
    }
    if (document === null) {
       return <div>Document not found</div>;

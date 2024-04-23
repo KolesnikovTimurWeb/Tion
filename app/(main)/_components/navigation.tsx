@@ -92,18 +92,13 @@ const Navigation = () => {
 
                <div>
                   <UserItem />
-                  <button onClick={search.onOpen}>
-                     CLICK
-                  </button>
-                  <button onClick={() => console.log(search.isOpen)}>
-                     Check
-                  </button>
-                  <Item
-                     label="Search"
-                     icon={searchIcon}
-                     isSearch
-                     onClick={search.onOpen}
-                  />
+                  <ConfirmModel isSearch >
+                     <Item
+                        label="Search"
+                        icon={searchIcon}
+                     />
+                  </ConfirmModel>
+
                   <Item onClick={handleCreate} icon={plusIcon} label={"New page"} />
                </div>
 
@@ -133,7 +128,7 @@ const Navigation = () => {
                >
 
                </div>
-            </aside>
+            </aside >
             <div
                ref={navigationRef}
                className={cn(style.navigation_menu)}>
@@ -152,7 +147,7 @@ const Navigation = () => {
                   </nav>
                )}
             </div>
-         </div>
+         </div >
 
 
       </>

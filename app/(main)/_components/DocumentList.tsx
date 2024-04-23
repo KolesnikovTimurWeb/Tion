@@ -39,6 +39,8 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProps) => {
                <div>
                   <Item.Skeleton level={level} />
                   <Item.Skeleton level={level} />
+                  <Item.Skeleton level={level} />
+                  <Item.Skeleton level={level} />
                </div>
             )}
          </>

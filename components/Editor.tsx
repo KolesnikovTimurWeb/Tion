@@ -16,7 +16,6 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
       initialContent: initialContent ? (JSON.parse(initialContent) as PartialBlock[]) : undefined,
    });
 
-   console.log(initialContent)
 
 
    return <BlockNoteView onChange={() => {

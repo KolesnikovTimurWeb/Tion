@@ -4,9 +4,11 @@ import Navbar from '@/app/(main)/_components/Navbar';
 import Tools from '@/components/Tools';
 import { api } from '@/convex/_generated/api'
 import { Id } from '@/convex/_generated/dataModel';
+import { Skeleton } from '@nextui-org/react';
 import { useMutation, useQuery } from 'convex/react'
 import dynamic from 'next/dynamic';
 import React, { useMemo } from 'react'
+import skelton from '@/styles/Skeleton.module.scss'
 
 interface DocumentIdPageProps {
    params: {
@@ -22,9 +24,20 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
    const onChange = (content: string) => {
       update({ id: params.documentId, content });
    };
-   console.log(document)
+
    if (document === undefined) {
-      return <div>loading</div>
+      return (
+         <div className={skelton.div}>
+            <div >
+               <div>
+                  <Skeleton className={skelton.skeleton_h2} />
+                  <Skeleton className={skelton.skeleton} />
+                  <Skeleton className={skelton.skeleton} />
+                  <Skeleton className={skelton.skeleton} />
+               </div>
+            </div>
+         </div>
+      );
    }
 
    if (document === null) {
@@ -33,7 +46,8 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
 
 
    return (
-      <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', width: '100%' }}>
+
          <div>
             <Tools initialData={document} />
          </div>
