@@ -48,7 +48,7 @@ const ConfirmModel = ({ children, onConfirm, isSearch }: ConfirmModal) => {
                                     if (filteredDocuments.length === 0) return <div>No Item Found</div>
                                     return (
 
-                                       <div onClick={() => {
+                                       <div key={item._id} onClick={() => {
                                           onSelect(item._id),
                                              onClose()
                                        }
