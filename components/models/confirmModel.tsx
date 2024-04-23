@@ -28,7 +28,7 @@ const ConfirmModel = ({ children, onConfirm, isSearch }: ConfirmModal) => {
       return document.title.toLowerCase().includes(search.toLowerCase())
    })
    return (
-      <div>
+      <>
          <button className={style.button} onClick={onOpen}>{children}</button>
          {isSearch ? (
 
@@ -90,7 +90,7 @@ const ConfirmModel = ({ children, onConfirm, isSearch }: ConfirmModal) => {
             </Modal>
          )
          }
-      </div >
+      </ >
 
    )
 }
