@@ -43,17 +43,16 @@ const ConfirmModel = ({ children, onConfirm, isSearch }: ConfirmModal) => {
                                  placeholder="Filter by title...." value={search} onChange={(e) => setSearch(e.target.value)} />
 
                               <div className={style.model_items}>
-                                 {filteredDocuments?.map((item) => 
-                                    return (
-                                       <div key={item._id} onClick={() => {
-                                          onSelect(item._id),
-                                             onClose()
-                                       }
-                                       }>
+                                 {filteredDocuments?.map((item) =>
+                                    <div key={item._id} onClick={() => {
+                                       onSelect(item._id),
+                                          onClose()
+                                    }
+                                    }>
 
-                                          <p>{item?.title}</p>
-                                       </div>
-                                    ))}
+                                       <p>{item?.title}</p>
+                                    </div>
+                                 )}
                               </div>
 
                               <div style={{ display: 'flex', gap: '10px', flexDirection: "column" }}>
