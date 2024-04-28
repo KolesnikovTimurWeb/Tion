@@ -12,7 +12,7 @@ const font = Poppins({
 const Logo = () => {
    return (
       <div>
-         <h2 className={cn('font-semibold', font.className)}>Tion 222</h2>
+         <h2 className={cn('font-semibold', font.className)}>Tion</h2>
       </div>
    )
 }
