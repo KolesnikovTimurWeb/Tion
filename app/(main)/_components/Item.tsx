@@ -130,7 +130,7 @@ Item.Skeleton = function ItemSkeleton({ level }: { level?: number }) {
       <div style={{
          paddingLeft: level ? `${(level * 12) + 12}px` : "12px"
       }}>
-         <Skeleton style={{ display: 'flex', height: '10px', width: '100%', background: '#555' }} />
+         <Skeleton style={{ display: 'flex', height: '10px', width: '100%', background: 'rgba(115, 115, 115, 0.8)' }} />
       </div>
    )
 }
