@@ -6,7 +6,6 @@ import Loader from '@/components/loader'
 import { SignIn, SignInButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import document from '@/public/documents.png'
-import { Link } from "react-router-dom";
 
 const Heading = () => {
    const { isAuthenticated, isLoading } = useConvexAuth()
