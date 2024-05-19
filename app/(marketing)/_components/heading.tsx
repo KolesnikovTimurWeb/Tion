@@ -11,7 +11,7 @@ const Heading = () => {
    const { isAuthenticated, isLoading } = useConvexAuth()
    const router = useRouter()
     const onRedirect = () => {
-      router.push(`/documents}`);
+      router.push(`/documents`);
    };
 
    return (
