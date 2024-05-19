@@ -6,9 +6,14 @@ import { useConvexAuth } from 'convex/react'
 import { SignInButton, UserButton } from '@clerk/clerk-react'
 import Logo from './logo'
 import Loader from '@/components/loader'
-
+import { useRouter } from 'next/navigation';
 const Navbar = () => {
    const { isAuthenticated, isLoading } = useConvexAuth()
+      const router = useRouter()
+      const onRedirect = () => {
+      router.push(`/documents`);
+   };
+
    return (
       <div className={cn(style.navbar)}>
          <Logo />
@@ -28,7 +33,7 @@ const Navbar = () => {
 
          {isAuthenticated && !isLoading && (
             <div className={style.navbar_enter}>
-               <button className={style.navbar_enter_button}>Enter Tion</button>
+               <button onClick={() => onRedirect()} className={style.navbar_enter_button}>Enter Tion</button>
                <UserButton afterSignOutUrl='/document' />
             </div>
          )}
